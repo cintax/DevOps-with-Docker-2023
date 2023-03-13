@@ -1,0 +1,19 @@
+# List all docker containers
+docker container ps -as
+
+# Stop running containers
+docker container stop <instance_name>
+
+# Remove containers
+docker container rm <instance1> <instance2> <instance3>
+
+# List all images
+docker image ls
+
+# Remove docker images
+docker image rm <image1> <image2>
+
+-- SOLUTION --
+
+# List containers and images
+docker ps -a; docker image ls;

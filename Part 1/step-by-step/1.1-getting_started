@@ -1,0 +1,16 @@
+# Pull docker image for 'nginx' from docker registry
+docker image pull nginx
+
+# Run a daemonized nginx container 3 times
+for i in {1..3}; do docker container run -d nginx; done
+
+# List all containers
+docker container ps -a
+
+# Stop two instances
+docker container stop <instance1> <instance2>
+
+-- SOLUTION --
+
+# Output of following command
+docker container ps -a
