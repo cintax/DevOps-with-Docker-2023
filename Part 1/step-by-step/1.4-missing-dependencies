@@ -1,0 +1,22 @@
+# List containers
+docker ps -as
+
+# Run the Ubuntu image with the given process. (Add '-vL' flags to curl to follow the redirects)
+docker run -d -it --rm --name webpull ubuntu sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl -vL http://$website; done'
+
+# Use 'docker exec' to spawn a process which helps us access the ubuntu shell 
+docker exec -it webpull bash
+
+# Install missing dependencies 
+apt-get update && apt-get -y install curl
+
+# Exit the bash process
+exit
+
+# Attach to the webpull container and copy STDOUT to a file named 'request' (The output of curl is long)
+docker attach webpull | tee request
+
+-- SOLUTION --
+
+# Copy the commands and their outputs into a file and submit
+
