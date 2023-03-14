@@ -1,0 +1,22 @@
+*****@*****:~/git/DevOps with Docker 2023/Part 1/temp$ docker ps -as
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES     SIZE
+*****@*****:~/git/DevOps with Docker 2023/Part 1/temp$ touch text.log
+*****@*****:~/git/DevOps with Docker 2023/Part 1/temp$ docker run -it -v "$(pwd)/text.log:/usr/src/app/text.log" devopsdockeruh/simple-web-service
+Starting log output
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+*****@*****:~/git/DevOps with Docker 2023/Part 1/temp$ tail -f text.log 
+2023-03-14 21:00:43 +0000 UTC
+2023-03-14 21:00:45 +0000 UTC
+2023-03-14 21:00:47 +0000 UTC
+2023-03-14 21:00:49 +0000 UTC
+2023-03-14 21:00:51 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2023-03-14 21:00:53 +0000 UTC
+2023-03-14 21:00:55 +0000 UTC
+2023-03-14 21:00:57 +0000 UTC
+2023-03-14 21:00:59 +0000 UTC
+2023-03-14 21:01:01 +0000 UTC
+^C
+*****@*****:~/git/DevOps with Docker 2023/Part 1/temp$ 

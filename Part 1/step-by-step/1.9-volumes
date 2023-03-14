@@ -1,0 +1,14 @@
+# Create a temporary directory or a temporary file
+mkdir temp
+
+# Create a text.log file inside temp directory
+touch ./temp/text.log
+
+# Mount the local text.log file on the container at /usr/src/app/text.log
+docker run -v "$(pwd)/text.log:/usr/src/app/text.log" devopsdockeruh/simple-web-service
+
+# The local text.log file will be written with some logs
+
+-- SOLUTION --
+
+# Submit the command for mounting the file

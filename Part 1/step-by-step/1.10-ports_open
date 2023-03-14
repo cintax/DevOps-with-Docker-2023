@@ -1,0 +1,5 @@
+# Run docker command with host port 1234 and container port 8080
+docker run -d --rm -p 127.0.0.1:1234:8080 web-server
+
+# curl localhost:1234 which redirects the request to container:8080
+curl localhost:1234
