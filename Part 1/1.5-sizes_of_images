@@ -1,0 +1,34 @@
+*****@*****:~/git/DevOps with Docker 2023/Part 1$ docker image ls
+REPOSITORY                          TAG       IMAGE ID       CREATED         SIZE
+ubuntu                              latest    74f2314a03de   12 days ago     77.8MB
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   24 months ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   24 months ago   15.7MB
+*****@*****:~/git/DevOps with Docker 2023/Part 1$ docker run -d -it --rm --name alpine devopsdockeruh/simple-web-service:alpine 
+86f82d5d2c8d5dcb7ac1f25e32578ca65f27657b571d3952229b94c4970ea0a0
+*****@*****:~/git/DevOps with Docker 2023/Part 1$ docker exec -it alpine sh
+/usr/src/app # ls
+server    text.log
+/usr/src/app # tail -f text.log 
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2023-03-13 23:41:24 +0000 UTC
+2023-03-13 23:41:26 +0000 UTC
+2023-03-13 23:41:28 +0000 UTC
+2023-03-13 23:41:30 +0000 UTC
+2023-03-13 23:41:32 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2023-03-13 23:41:34 +0000 UTC
+2023-03-13 23:41:36 +0000 UTC
+2023-03-13 23:41:38 +0000 UTC
+2023-03-13 23:41:40 +0000 UTC
+2023-03-13 23:41:42 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2023-03-13 23:41:44 +0000 UTC
+2023-03-13 23:41:46 +0000 UTC
+2023-03-13 23:41:48 +0000 UTC
+2023-03-13 23:41:50 +0000 UTC
+2023-03-13 23:41:52 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2023-03-13 23:41:54 +0000 UTC
+2023-03-13 23:41:56 +0000 UTC
+^C
+/usr/src/app # 

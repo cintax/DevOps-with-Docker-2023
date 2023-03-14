@@ -1,0 +1,19 @@
+# Pull images mentioned in the exercise
+docker pull devopsdockeruh/simple-web-service:ubuntu
+docker pull devopsdockeruh/simple-web-service:alpine
+
+# Compare the size of both the containers
+docker ps -as
+
+# Run the alpine linux image
+docker run -d -it --rm --name alpine devopsdockeruh/simple-web-service:alpine
+
+# Spawn 'sh' process to enter the container in interactive mode
+docker exec -it alpine sh
+
+# Check the secret is same or not
+tail -f ./text.log
+
+-- SOLUTION --
+
+# Copy output of the series of commands mentioned above and submit

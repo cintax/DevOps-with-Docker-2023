@@ -1,0 +1,13 @@
+# Create a Dockerfile (Can be found in '1.8-two_line_dockerfile' directory in the root directory of this repo)
+touch Dockerfile
+# cat /1.8-two_line_dockerfile/Dockerfile >> Dockerfile (optional)
+
+# Build using the Dockerfile and name the container with tag web-server (Apparently, tags aren't version tags)
+docker build . -t web-server
+
+# Run the container
+docker run web-server
+
+-- SOLUTION --
+
+# Submit Dockerfile

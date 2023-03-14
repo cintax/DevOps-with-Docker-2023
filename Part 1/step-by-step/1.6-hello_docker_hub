@@ -1,0 +1,8 @@
+# Run the docker image from the exercise
+docker run -it devopsdockeruh/pull_exercise
+
+# Check the Docker Hub page for secret. It's in the Readme.
+
+-- SOLUTION --
+
+# Copy the entire output to a file and submit

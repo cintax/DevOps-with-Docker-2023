@@ -1,0 +1,13 @@
+# Create a Dockerfile (Can be found in '1.7-image_for_script' directory in the root directory of this repo)
+touch Dockerfile
+# cat /1.7-image_for_script/Dockerfile >> Dockerfile (optional)
+
+# Build using the Dockerfile and name the container with tag curler
+docker build . -t webpull:curler
+
+# Run the container
+docker run -it webpull:curler
+
+-- SOLUTION --
+
+# Submit Dockerfile
