@@ -1,0 +1,12 @@
+# Build the Dockerfile
+docker build . -t node-frontend
+
+# Run the image
+docker run -p 127.0.0.1:5000:5000 node-frontend
+
+# Go to localhost:1234
+xdg-open http://localhost:5000
+
+-- SOLUTION --
+
+# Submit the dockerfile

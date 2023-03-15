@@ -1,0 +1,12 @@
+# Build the Dockerfile
+docker build . -t go-backend
+
+# Run the image
+docker run -p 127.0.0.1:8080:8080 go-backend
+
+# Go to localhost:8080/ping
+curl http://localhost:8080/ping
+
+-- SOLUTION --
+
+# Submit the dockerfile

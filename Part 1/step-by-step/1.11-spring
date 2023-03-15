@@ -1,0 +1,12 @@
+# Build the Dockerfile
+docker build . -t spring
+
+# Run the image
+docker run -p 127.0.0.1:1234:8080 spring
+
+# Go to localhost:1234
+xdg-open http://localhost:1234
+
+-- SOLUTION --
+
+# Submit the dockerfile

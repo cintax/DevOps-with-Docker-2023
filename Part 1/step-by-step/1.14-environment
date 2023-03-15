@@ -1,0 +1,25 @@
+-- node-frontend --
+
+# Build the docker image
+docker build . -t node-frontend
+
+# Run the docker container for node-frontend image on port 5000
+docker run -p 127.0.0.1:5000:5000 node-frontend
+
+-- go-backend --
+
+# Build the docker image
+docker build . -t go-backend
+
+# Run the docker container for go-backend image on port 8080
+docker run -p 127.0.0.1:8080:8080 go-backend
+
+-- Verfication --
+
+NOTE: 'REQUEST_ORIGIN=http://localhost:5000' so we have to hit the frontend with hostname and not the IP
+       We can add in multiple REQUEST_ORIGIN's but that would require us to alter the backend code which is not permitted
+
+# Spin up a browser
+xdg-open http://localhost:5000
+
+# Press the button for 'Success! Great job!' message
