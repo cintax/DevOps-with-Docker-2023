@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  hello-frontend:
+    build: ./frontend
+    ports:
+      - 5000:5000
+
+  hello-backend:
+    build: ./backend
+    ports:
+      - 8080:8080
