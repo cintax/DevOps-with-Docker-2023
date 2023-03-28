@@ -1,0 +1,7 @@
+This is a simple Node application for doing basic calculations on two numbers provided by the user via HTML form.
+
+This a basic test application for testing how containerized dev environments react when working with on host codebase.
+
+I deliberately added `+ 100` to the addition expression and replaced it after launching the containerized dev env to watch it react to the said changes.
+
+Worked out fine! No more 'Works-on-my-machine' problems!

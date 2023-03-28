@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  calculator-dev-env:
+    container_name: calculator-dev-env
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    command: npm run start
+    volumes:
+      - ./:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
+
+volumes:
+  node_modules:
