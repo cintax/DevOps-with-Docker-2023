@@ -33,6 +33,7 @@ if user_continue == 'y' or user_continue == 'Y':
     spinner.text = 'Cloning'
     with spinner:
         os.system("git clone -q {0}".format(github_repo_url))
+        spinner.stop_and_persist(symbol='✔', text='Cloned repository!')
     
     repo_name = sanitized_github_repo_name.split('/')[-1]
 
@@ -46,17 +47,18 @@ if user_continue == 'y' or user_continue == 'Y':
     
     spinner.text = 'Logging into your Docker Hub'
     with spinner:
-        client.login(username='', password='')
+        client.login(os.environ.get('DOCKER_USERNAME'), os.environ.get('DOCKER_PASSWORD'))
+        spinner.stop_and_persist(symbol='✔', text='Logged In!')
 
     spinner.text='Building Docker image'
     with spinner:
         image, build_logs = client.images.build(path=dockerfile, tag=tag)
+        spinner.stop_and_persist(symbol='✔', text='Built docker image!')
 
     spinner.text='Push the Docker image to Docker Hub'
     with spinner:
         client.images.push(repository=sanitized_dockerhub_repo_name, tag='latest')
-
-    print("=== Pushed ===")
+        spinner.stop_and_persist(symbol='✔', text='Pushed docker image to docker hub repository!')
 
 elif user_continue == 'n' or user_continue == 'N':
     sys.exit()
