@@ -22,14 +22,15 @@ The Docker Hub repository you are trying to push to is {sys.argv[2]}
 sanitized_github_repo_name = sys.argv[1]
 sanitized_dockerhub_repo_name = sys.argv[2]
 
-github_repo_url = 'git@github.com:'+sanitized_github_repo_name+'.git'
+github_repo_url = 'https://github.com/'+sanitized_github_repo_name
 
 spinner = Halo(text='', spinner='dots')
 
 spinner.text = 'Cloning'
 with spinner:
     os.system("git clone -q {0}".format(github_repo_url))
-    spinner.stop_and_persist(symbol='✔', text='Cloned repository!')
+    spinner.text = '✔ Cloned repository!' 
+    spinner.stop_and_persist()
     
 repo_name = sanitized_github_repo_name.split('/')[-1]
 
@@ -44,14 +45,17 @@ client = docker.from_env()
 spinner.text = 'Logging into your Docker Hub'
 with spinner:
     client.login(os.environ.get('DOCKER_USERNAME'), os.environ.get('DOCKER_PASSWORD'))
-    spinner.stop_and_persist(symbol='✔', text='Logged In!')
+    spinner.text = '✔ Logged In!'
+    spinner.stop_and_persist()
 
 spinner.text='Building Docker image'
 with spinner:
     image, build_logs = client.images.build(path=dockerfile, tag=tag)
-    spinner.stop_and_persist(symbol='✔', text='Built docker image!')
+    spinner.text= '✔ Built docker image!'
+    spinner.stop_and_persist()
 
 spinner.text='Push the Docker image to Docker Hub'
 with spinner:
     client.images.push(repository=sanitized_dockerhub_repo_name, tag='latest')
-    spinner.stop_and_persist(symbol='✔', text='Pushed docker image to docker hub repository!')
+    spinner.text = '✔ Pushed docker image to docker hub repository!'
+    spinner.stop_and_persist()
